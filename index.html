@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Pomodoro</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="settings">
+        <!-- settings -->
+        <div>
+          <!-- break time settings -->
+          <div class="setting-header">Break Time:</div>
+          <div class="settings-btns">
+            <button onclick="timer.changeBreakTime(-5)">-5</button>
+            <button onclick="timer.changeBreakTime(-1)">-1</button>
+            <div class="indicator">
+              <div id="break-time">5</div>
+            </div>
+            <button onclick="timer.changeBreakTime(1)">+1</button>
+            <button onclick="timer.changeBreakTime(5)">+5</button>
+          </div>
+        </div>
+
+        <div>
+          <!-- Session time settings -->
+          <div class="setting-header">Session Time:</div>
+          <div class="settings-btns">
+            <button onclick="timer.changeSessionTime(-5)">-5</button>
+            <button onclick="timer.changeSessionTime(-1)">-1</button>
+            <div class="indicator">
+              <div id="session-time">20</div>
+            </div>
+            <button onclick="timer.changeSessionTime(1)">+1</button>
+            <button onclick="timer.changeSessionTime(5)">+5</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="timer">
+        <!-- timer -->
+        <div>
+          <div id="label">Time Left:</div>
+          <div id="timer">20</div>
+          <button id="btn" onclick="timer.start()">START</button>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
