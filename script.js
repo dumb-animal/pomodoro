@@ -48,6 +48,8 @@ class Timer {
   counting() {
     this.leftTime -= 1;
     if (this.leftTime <= 0) {
+      let audio = new Audio("audio.mp3");
+      audio.play();
       this.leftTime = this.isSession
         ? this.breakTime * 60
         : this.sessionTime * 60;
@@ -63,7 +65,18 @@ class Timer {
     if (this.isStarted) this.buttonElement.innerText = "STOP";
     else this.buttonElement.innerText = "START";
 
-    this.timerElement.innerText = this.leftTime;
+    this.timerElement.innerText = this.time();
+  }
+
+  time() {
+    let result = "";
+    let s = Math.floor(this.leftTime % 60);
+    let m = Math.floor((this.leftTime / 60) % 60);
+    let h = Math.floor(this.leftTime / 3600);
+    result += h ? h + ":" : "";
+    result += (m ? m : "0") + ":";
+    result += s > 9 ? s : "0" + s;
+    return result;
   }
 
   changed() {
